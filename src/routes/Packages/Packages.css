@@ -1,0 +1,22 @@
+.package-header{
+  margin-top: 200px; 
+  margin-left: 20px;
+ width: 400px;
+ height: 500px;
+ border-style: solid;
+ border:1rem;
+ border-color: black;
+ background-color: green;
+ z-index: -1;
+ 
+ }
+ .available-packages{
+   margin-top: 20px;
+   background-color: yellow;
+   width: 400px;
+ 
+ }
+ .package-detail{
+   margin-top: 20px;
+   background-color: blueviolet;
+ }
