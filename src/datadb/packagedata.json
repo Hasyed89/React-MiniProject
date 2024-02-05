@@ -1,0 +1,64 @@
+{
+  "packagesData": [
+    {
+      "id": "1",
+      "destination": " Mexico",
+      "itinerary": " Explore iconic landmarks...",
+      "price": "1000",
+      "accommodations": "Luxury Hotel",
+      "ticketsAvailable": "10",
+      "ratings": "[4, 5, 3]",
+      "name": "",
+      "phone": "",
+      "email": ""
+    },
+    {
+      "id": "2",
+      "destination": " Paris",
+      "itinerary": " Explore iconic landmarks...",
+      "price": "1000",
+      "accommodations": "Luxury Hotel",
+      "ticketsAvailable": "10",
+      "ratings": "[4, 5, 3]",
+      "name": "",
+      "phone": "",
+      "email": ""
+    },
+    {
+      "id": "3",
+      "destination": " London",
+      "itinerary": " Explore iconic landmarks...",
+      "price": "1000",
+      "accommodations": "Luxury Hotel",
+      "ticketsAvailable": "10",
+      "ratings": "[4, 5, 3]",
+      "name": "",
+      "phone": "",
+      "email": ""
+    },
+    {
+      "id": "4",
+      "destination": " Srilanka",
+      "itinerary": " Explore iconic landmarks...",
+      "price": "1000",
+      "accommodations": "Luxury Hotel",
+      "ticketsAvailable": "10",
+      "ratings": "[4, 5, 3]",
+      "name": "",
+      "phone": "",
+      "email": ""
+    },
+    {
+      "id": "5",
+      "destination": " Maiami",
+      "itinerary": " Explore iconic landmarks...",
+      "price": "1000",
+      "accommodations": "Luxury Hotel",
+      "ticketsAvailable": "10",
+      "ratings": "[4, 5, 3]",
+      "name": "",
+      "phone": "",
+      "email": ""
+    }
+  ]
+}

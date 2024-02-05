@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Contact.css'
-import { packagesData } from '../../datadb/data';
+import { packagesData } from '../../datadb/packageData';
 
 
 const Contact = () => {

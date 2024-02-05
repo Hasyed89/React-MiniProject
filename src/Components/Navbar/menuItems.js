@@ -30,6 +30,18 @@ export const menuItems =[
   url:'/packages',
   cName:'nav-links',
   icon:"fa-solid fa-address-book"
+},
+{ 
+  title :"Itenary",
+  url:'/itenary',
+  cName:'nav-links',
+  icon:"fa-solid fa-address-book"
+},
+{ 
+  title :"ItenaryList",
+  url:'/itenaryList',
+  cName:'nav-links',
+  icon:"fa-solid fa-address-book"
 }
   ,{
     title :"Sign Up",

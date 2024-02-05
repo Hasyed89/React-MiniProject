@@ -1,62 +1,90 @@
 // Booking.js
+// import React from 'react';
+// import './Booking.css'
+// import { useNavigate, useParams } from "react-router-dom";
+// import useFetch from '../../Components/useFetch';
+// const Booking =  () => {
+//   const {id} = useParams();
+//   const navigate = useNavigate();
+//   const { data: packagesData, loadMessage, isError }=useFetch('http://localhost:8000/packagesData/' +id)
+
+// const handleBooking = ()=>{
+
+//   // fetch('http://localhost:8000/books/'+ books.id,{
+
+//   fetch('http://localhost:8000/packagesData/'+ packagesData.id,{
+
+//     method:'GET'
+    
+//   }).then(()=>{
+//     navigate('/itenary');
+//   })
+// }
+// return (
+//   <>
+// <div className=' Package-detail'>
+// {loadMessage && <div>Loading ...</div>}
+// {isError && <div>{isError}</div>}
+// {packagesData &&(
+//     <div key={packagesData.id}>
+// <article>
+//     <h2> Destination: {packagesData.destination}</h2>
+//     <h3>Itinerary :{packagesData.itinerary}</h3>
+//     <h3>Price : ${packagesData.price}</h3>
+//     <h3>Accomodations : {packagesData.accomodations}</h3>  <h3>Tickets-Available : {packagesData.ticketsAvailable}</h3>
+//     <h3>Ratings : {packagesData.ratings}</h3>
+
+//     <button onClick={
+//       handleBooking
+//     }>Book-Now</button>
+//   </article>
+//   </div>
+// )}
+// </div>
+//  </>
+// );
+// }
+      
+// export default Booking;
+
 import React from 'react';
+import './Booking.css';
+import { useNavigate, useParams } from "react-router-dom";
+import useFetch from '../../Components/useFetch';
 
-const Booking = ({ selectedPackage, bookingCount, setBookingCount, packages, setPackages, setSelectedPackage }) => {
-  const handleBookPackage = () => {
-    if (selectedPackage && selectedPackage.ticketsAvailable >= bookingCount) {
-      // Update ticketsAvailable
-      const updatedPackages = packages.map((pkg) =>
-        pkg.id === selectedPackage.id
-          ? { ...pkg, ticketsAvailable: pkg.ticketsAvailable - bookingCount }
-          : pkg
-      );
-      setPackages(updatedPackages);
+const Booking = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const { data: packagesData, loadMessage, isError } = useFetch(`http://localhost:8000/packagesData/${id}`);
 
-      // Add booking record (dummy data for demonstration)
-      const bookingRecord = {
-        packageId: selectedPackage.id,
-        bookingCount,
-        date: new Date().toLocaleDateString(),
-      };
-      console.log('Booking:', bookingRecord);
-
-      // Clear selected package after booking
-      setSelectedPackage(null);
-    } else {
-      alert('Tickets not available or invalid booking count');
-    }
+  const handleBooking = () => {
+    fetch(`http://localhost:8000/packagesData/${packagesData.id}`, {
+      method: 'POST' // Assuming you are creating a booking, so using POST method
+    }).then(() => {
+      navigate('/service');
+    });
   };
 
   return (
-    <div>
-      {/* Selected Package Details */}
-      {selectedPackage && (
-        <div className='package-detail'>
-          <h2>Package Details</h2>
-          <p>Destination: {selectedPackage.destination}</p>
-          <p>Itinerary: {selectedPackage.itinerary}</p>
-          <p>Accommodations: {selectedPackage.accommodations}</p>
-          <p>Tickets Available: {selectedPackage.ticketsAvailable}</p>
+    <div className='Package-detail'>
+      {loadMessage && <div>Loading ...</div>}
+      {isError && <div>{isError}</div>}
+      {packagesData && (
+        <div key={packagesData.id}>
+          <article>
+            <h2>Destination: {packagesData.destination}</h2>
+            <h3>Itinerary: {packagesData.itinerary}</h3>
+            <h3>Price: ${packagesData.price}</h3>
+            <h3>Accommodations: {packagesData.accomodations}</h3>
+            <h3>Tickets-Available: {packagesData.ticketsAvailable}</h3>
+            <h3>Ratings: {packagesData.ratings}</h3>
+            <button onClick={handleBooking}>Book-Now</button>
+          </article>
         </div>
       )}
-
-      {/* Booking Section */}
-      {selectedPackage && (
-        <div className='bookingpackage'>
-          <h3>Book Package</h3>
-          <label>Number of Travelers:</label>
-          <input
-            type="number"
-            min="1"
-            max={selectedPackage.ticketsAvailable}
-            value={bookingCount}
-            onChange={(e) => setBookingCount(parseInt(e.target.value, 10))}
-          />
-          {/* Add onClick handler to the button */}
-          <button onClick={handleBookPackage}>Book Now</button>
-        </div>
-      )}
-</div>
+    </div>
   );
-      }
+};
+
 export default Booking;
+

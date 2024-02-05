@@ -1,0 +1,11 @@
+export
+const packagesData=[{
+id:1,
+destination:'paris',
+itinerary:'Explore Baigan tamatey',
+price:1000,
+accomodations:"Luxury Hotel",
+ticketsAvailable :10,
+rating:[4,5,3],
+
+}]
