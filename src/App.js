@@ -8,6 +8,7 @@ import Booking from "./routes/Booking/Booking";
 import Packages from "./routes/Packages/Packages";
 import Itenary from "./routes/Itenary/Itenary";
 import ItenaryList from "./Components/itenaryList/itenaryList";
+import Pack from "./routes/Packages/Pack";
 
 
 const App = () => {
@@ -17,10 +18,13 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/about" element={<About/>}/>
-        <Route path="/service" element={<Service/>}/>
+        <Route path="/service/:id" element={<Service/>}/>
         <Route path="/contact" element={<Contact/>}/>
-        <Route path="/booking/:id" element={<Booking/>}/>
+        {/* <Route path="/booking" element={<Booking/>}/> */}
+        <Route path="/booking/:id" element={<Booking />} />
         <Route path="/packages" element={<Packages/>}/>
+        <Route path="/pack/:id" element={<Pack/>}/>
+
         <Route path= "/itenary" element={<Itenary/>}/>
         <Route path= "/itenaryList" element={<ItenaryList/>}/>
       </Routes>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Contact.css'
 import { packagesData } from '../../datadb/packageData';
+import { useNavigate } from 'react-router-dom';
 
 
 const Contact = () => {
@@ -9,13 +10,18 @@ console.log(packagesData);
   const [selectedPackage, setSelectedPackage] = useState(null);
   const [bookingCount, setBookingCount] = useState(1);
   const [reviews, setReviews] = useState([]);
+const navigate= useNavigate();
+
 
   const handlePackageClick = (packageId) => {
     const selected = packages.find((pkg) => pkg.id === packageId);
     setSelectedPackage(selected);
+    // navigate('/booking')
+
   };
 
   const handleBookPackage = () => {
+    
     if (selectedPackage && selectedPackage.ticketsAvailable >= bookingCount) {
       // Update ticketsAvailable
       const updatedPackages = packages.map((pkg) =>

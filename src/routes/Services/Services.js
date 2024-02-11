@@ -1,115 +1,79 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import './Services.css';
-
-const Service = () => {
-  const [destination, setDestination] = useState("");
-  const [itinerary, setItinerary] = useState("");
-  const [price, setPrice] = useState("");
-  const [accomodations, setAccommodations] = useState("");
-  const [ticketsAvailable, setTicketsAvailable] = useState("");
-  const [count, setCount] = useState('1');
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [isPending, setIsPending] = useState(false);
-  const [entries, setEntries] = useState([]);
+import { useNavigate, useParams } from "react-router-dom";
+import useFetch from "../../Components/useFetch";
+const Services = ({ selectedPackageProp, handlePackageClick }) => {
+  const { id } = useParams();
   const navigate = useNavigate();
+  const { data: packagesData, loadMessage, isError } = useFetch(`http://localhost:8000/packagesData/${id}`);
+  const [selectedPackage, setSelectedPackage] = useState(null);
+  const [packages, setPackages] = useState(packagesData);
+  const [bookingCount, setBookingCount] = useState(1);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // Ensure that selectedPackageProp is defined before accessing its properties
+  const ticketsAvailable = selectedPackageProp &&selectedPackageProp?.ticketsAvailable ;
+console.log(selectedPackageProp ,":selectedPackageProp");
+console.log(packages ,":is the power");
+console.log(packagesData ,":is the power");
+console.log(ticketsAvailable ,":is the power");
 
-    const booking = {
-      name,
-      phone,
-      email,
-      destination,
-      itinerary,
-      price,
-      accomodations,
-      ticketsAvailable
-    };
 
-    setIsPending(true);
 
-    // Assuming this is an async operation
-    fetch("http://localhost:9000/itenaryDetails", {
-      method: 'POST',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(booking)
-    }).then(() => {
-      setIsPending(false);
+  const handleBookPackage = (packageId) => {
+    console.log(handlePackageClick(),"hello");
 
-      // Assuming these are defined in your context
-      // Update ticketsAvailable and packages here
-      // const updatedPackages = packages.map((pkg) =>
-      //   pkg.id === selectedPackage.id
-      //     ? { ...pkg, ticketsAvailable: pkg.ticketsAvailable - bookingCount }
-      //     : pkg
-      // );
-      // setPackages(updatedPackages);
-
+    if (selectedPackageProp && ticketsAvailable >= bookingCount) {
+      // Update ticketsAvailable
+      const updatedPackages = packages.map((pkg) =>
+        pkg.id === selectedPackageProp.id ? { ...pkg, ticketsAvailable: pkg.ticketsAvailable - bookingCount } : pkg
+      );
+      setPackages(updatedPackages);
+      console.log(setPackages,"ujuj");
       // Add booking record (dummy data for demonstration)
-      // const bookingRecord = {
-      //   packageId: selectedPackage.id,
-      //   bookingCount,
-      //   date: new Date().toLocaleDateString(),
-      // };
-      // console.log('Booking:', bookingRecord);
-
+      const bookingRecord = {
+        packageId: selectedPackageProp.id,
+        bookingCount,
+        date: new Date().toLocaleDateString(),
+      };
+      console.log("Booking:", bookingRecord);
+      handlePackageClick();
       // Clear selected package after booking
-      // setSelectedPackage(null);
-
-      console.log('New entry added');
-      
-      // Update the entries state with the latest data
-      setEntries([...entries, booking]);
-
-      // Navigate to the desired route after successful submission
-      navigate('/itenary');
-    }).catch((error) => {
-      setIsPending(false);
-      console.error('Error adding booking:', error);
-    });
+      setSelectedPackage(null);
+    } else {
+      alert("Tickets not available or invalid booking count");
+    }
   };
 
   return (
     <>
-      <div className="submit-container">
-        <h2>Add Booking</h2>
-        <form onSubmit={handleSubmit}>
-        <label>Name </label>
-    <input type="text" required placeholder="Name" value={name}
-    onChange={(e)=>{
-      setName (e.target.value);
-    }}
-    />
-    <label>Phone.no</label>
-    <input type="text" required placeholder="#####" value={phone}
-    onChange={(e)=>{
-      setPhone(e.target.value);
-    }}
-    />
-    <label>Email</label>
-    <input type="text" required placeholder="" value={email}
-    onChange={(e)=>{
-      setEmail(e.target.value);
-    }}
-    />
-    <select value={accomodations}  onChange={(e)=>{
-      setAccommodations(e.target.value);
-    }}>
-      <option value = "Luxury Hotel">Hotel</option>
-      <option value = "3 Star Hotel">3 Star Hotel</option>
-      <option value = "Motel "> Motel</option>
-    </select>
-          <button className="bg-orange-500 p-3 ml-4" disabled={isPending}>
-            {isPending ? 'Adding Book...' : 'Add Book'}
-          </button>
-        </form>
+      <div className="Package-detail">
+      <h3>Tickets Available: {selectedPackageProp?.ticketsAvailable || 0}</h3>
+
+        {loadMessage && <div>Loading ...</div>}
+        {isError && <div>{isError}</div>}
+        {packagesData && (
+          <div key={packagesData.id}>
+            <article>
+              <h2>Destination: {packagesData.destination}</h2>
+              <h3>Itinerary: {packagesData.itinerary}</h3>
+              <h3>Price: ${packagesData.price}</h3>
+              <h3>Accommodations: {packagesData.accommodations}</h3>
+              <h3>Tickets Available: {ticketsAvailable}</h3> {/* Use ticketsAvailable instead of selectedPackageProp.ticketsAvailable */}
+              <h3>Ratings: {packagesData.ratings}</h3>
+              <input
+                type="number"
+                min="1"
+                max={ticketsAvailable} // Use ticketsAvailable instead of selectedPackageProp.ticketsAvailable
+                value={bookingCount}
+                onChange={(e) => setBookingCount(parseInt(e.target.value, 10))}
+              />
+              <button onClick={handleBookPackage}>Book Now</button>
+            </article>
+          </div>
+        )}
       </div>
     </>
   );
-}
+};
 
-export default Service;
+export default Services;
+

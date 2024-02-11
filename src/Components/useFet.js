@@ -1,6 +1,6 @@
 import { useState,useEffect } from "react";
 
-const useFetch = (url) => {
+const useFet = (url) => {
     const[data,setData]= useState(null)
     const[loadMessage,setLoadMessage] = useState(true)
     const[isError,setisError]=useState(null);
@@ -34,12 +34,14 @@ useEffect(()=>{
   },1000)
   return ()=> aborted.abort();
 },[url])
-
+const updateData = (newData) => {
+  setData(newData);
   return ( 
     
-    {data,loadMessage,isError}
+    {data,loadMessage,isError,updateData}
     
    );
-
 }
-export default useFetch;
+}
+ 
+export default useFet;

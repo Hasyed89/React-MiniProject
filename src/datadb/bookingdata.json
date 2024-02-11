@@ -1,7 +1,7 @@
 {
   "itenaryDetails": [
     {
-      "id": "3687",
+      "id": "1",
       "name": "Hamed ullah Syed",
       "phone": "16399988943",
       "email": "syedhamed89@outlook.com",
@@ -9,18 +9,7 @@
       "itinerary": "",
       "price": "",
       "accomodations": "",
-      "ticketsAvailable": 10
-    },
-    {
-      "id": "34c2",
-      "name": "",
-      "phone": "",
-      "email": "",
-      "destination": "",
-      "itinerary": "",
-      "price": "",
-      "accomodations": "",
-      "ticketsAvailable": ""
+      "ticketsAvailable": "10"
     }
   ]
 }
