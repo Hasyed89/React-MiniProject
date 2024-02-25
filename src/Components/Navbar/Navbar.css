@@ -48,7 +48,7 @@
 .nav-links-mobile{
   display: none;
 }
-button{
+.sign-up-btn{
   padding: 0.5rem;
   white-space: nowrap;
   border-radius: 0.3rem;
@@ -58,7 +58,7 @@ button{
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
-button:hover{
+.sign-up-btn:hover{
   background-color: #151516;
   color: #fff;
 }
@@ -104,7 +104,7 @@ z-index: 99;
     transition: none;
 
   }
-  button{
+  .sign-up-btn{
     display: none;
   }
   .nav-links-mobile{

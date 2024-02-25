@@ -5,7 +5,6 @@
 // import ItenaryList from '../../Components/itenaryList/itenaryList';
 // import Booking from '../Booking/Booking';
 
-
 // const Itenary = () => {
 //   const { data: packagesData, loadMessage, isError } = useFetch("http://localhost:8000/packagesData");
 //   const [entries, setEntries] = React.useState([]);
@@ -31,7 +30,7 @@
 //       {isError && <div>{isError}</div>}
 //       {loadMessage && <div className="cn">"Booking Confirmation..."</div>}
 //       {packagesData && <Service packaged={packagesData} SubmitHandler={SubmitHandler} />}
-      
+
 //       <ItenaryList entries={entries} />
 //     </>
 //   );
@@ -39,31 +38,30 @@
 
 // export default Itenary;
 
-
-import React, { useEffect, useState } from 'react';
-import useFetch from '../../Components/useFetch';
-import Service from '../Services/Services';
-import ItenaryList from '../../Components/itenaryList/itenaryList';
+import React, { useEffect, useState } from "react";
+import ItenaryList from "../../Components/itenaryList/itenaryList";
 
 const Itenary = () => {
-  const { data: initialEntries, loadMessage, isError } = useFetch('http://localhost:9000/itenaryDetails');
   const [entries, setEntries] = useState([]);
 
   useEffect(() => {
-    if (initialEntries) {
-      setEntries(initialEntries);
-    }
-  }, [initialEntries]);
+    getList();
+  }, []);
 
-  return (
-    <>
-      {isError && <div>{isError}</div>}
-      {loadMessage && <div className="cn">"Displaying the Travel List..."</div>}
-      {entries && <ItenaryList entries={entries}  />}
-    </>
-  );
+  const getList = () => {
+    const initialEntries = [];
+    for (const value of Object.values(sessionStorage)) {
+      try {
+        const booking = JSON.parse(value);
+        if (booking?.bookingCount) initialEntries.push(booking);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    setEntries(initialEntries);
+  };
+
+  return <>{entries && <ItenaryList entries={entries} />}</>;
 };
 
 export default Itenary;
-
-

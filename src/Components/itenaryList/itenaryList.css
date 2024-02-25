@@ -10,13 +10,14 @@
   margin-bottom: 20px;
 }
 
-input {
+#search-bar-input{
+  /* background-color: red; */
     margin-top: 1rem;
   width: 80%;
   padding: 20px;
   border-radius: 1rem;
   margin-right: 10px;
-}
+} 
 
 button {
   padding: 10px;

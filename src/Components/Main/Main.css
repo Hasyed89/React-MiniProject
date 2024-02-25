@@ -25,7 +25,7 @@ heroImg{
     font-size: 3rem;
     font-weight: 800;
     background-color: #fff;
-    /* -webkit-background-clip: text; */
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
   }
@@ -49,6 +49,7 @@ heroImg{
 @media screen and (max-width : 555px) {
   .hero-text h1{
     padding: 10px 20px;
+    
   }
   .hero-text p{
     font-size: 1.1rem;

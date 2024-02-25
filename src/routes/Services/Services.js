@@ -1,79 +1,132 @@
 import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import useFetch from "../../Components/useFetch";
-const Services = ({ selectedPackageProp, handlePackageClick }) => {
-  const { id } = useParams();
+import { useNavigate, useLocation } from "react-router-dom";
+import './Services.css';
+const Services = () => {
+  const location = useLocation();
+  const packagesData = location.state?.pkg;
   const navigate = useNavigate();
-  const { data: packagesData, loadMessage, isError } = useFetch(`http://localhost:8000/packagesData/${id}`);
-  const [selectedPackage, setSelectedPackage] = useState(null);
-  const [packages, setPackages] = useState(packagesData);
-  const [bookingCount, setBookingCount] = useState(1);
+  const [formData, setFormData] = useState({
+    bookingCount: 1,
+    email: "",
+    phone: "",
+    name: "",
+    date:"",
+  });
+  const { bookingCount, email, phone, name,date } = formData;
 
-  // Ensure that selectedPackageProp is defined before accessing its properties
-  const ticketsAvailable = selectedPackageProp &&selectedPackageProp?.ticketsAvailable ;
-console.log(selectedPackageProp ,":selectedPackageProp");
-console.log(packages ,":is the power");
-console.log(packagesData ,":is the power");
-console.log(ticketsAvailable ,":is the power");
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
 
-
-
-  const handleBookPackage = (packageId) => {
-    console.log(handlePackageClick(),"hello");
-
-    if (selectedPackageProp && ticketsAvailable >= bookingCount) {
-      // Update ticketsAvailable
-      const updatedPackages = packages.map((pkg) =>
-        pkg.id === selectedPackageProp.id ? { ...pkg, ticketsAvailable: pkg.ticketsAvailable - bookingCount } : pkg
-      );
-      setPackages(updatedPackages);
-      console.log(setPackages,"ujuj");
-      // Add booking record (dummy data for demonstration)
+  // Ensure that packagesData is defined before accessing its properties
+  const ticketsAvailable = packagesData && packagesData?.ticketsAvailable;
+  const destinationimg = packagesData && packagesData?.destinationimg;
+  const handleBookPackage = () => {
+    if (Object.values(formData).some((value) => !value))
+      alert("Some fields are empty");
+    else if (packagesData && ticketsAvailable >= bookingCount) {
       const bookingRecord = {
-        packageId: selectedPackageProp.id,
+        packageId: packagesData.id,
         bookingCount,
+        email,
+        phone,
+        name,
+        destination: packagesData.destination,
         date: new Date().toLocaleDateString(),
       };
+      const bookingId = Math.floor(Math.random() * 90000) + 10000;
+      sessionStorage.setItem(bookingId, JSON.stringify(bookingRecord));
       console.log("Booking:", bookingRecord);
-      handlePackageClick();
-      // Clear selected package after booking
-      setSelectedPackage(null);
+      navigate("/itenary", { state: bookingRecord });
     } else {
       alert("Tickets not available or invalid booking count");
     }
   };
 
   return (
-    <>
-      <div className="Package-detail">
-      <h3>Tickets Available: {selectedPackageProp?.ticketsAvailable || 0}</h3>
+    
+    <div className="container">
+    <img  className = "booking-bg" src="https://thumbs.dreamstime.com/b/online-booking-person-using-internet-website-laptop-flight-search-reservation-208024971.jpg"/>
+    <div> <img  className = "booking-bg1" src="https://thumbs.dreamstime.com/b/online-booking-person-using-internet-website-laptop-flight-search-reservation-208024971.jpg"/> </div>
+     <img  className = "booking-bg2" src="https://thumbs.dreamstime.com/b/online-booking-person-using-internet-website-laptop-flight-search-reservation-208024971.jpg"/> 
+      <div className="submit-container">
+      
 
-        {loadMessage && <div>Loading ...</div>}
-        {isError && <div>{isError}</div>}
+        
+        
+                 
+      {/* <div className="submit-container"> */}
+
+              
         {packagesData && (
           <div key={packagesData.id}>
-            <article>
+            <div className="itenary-booking">
+            <img className="submit-img" src={packagesData.destinationimg} alt={packagesData.destination} /> 
               <h2>Destination: {packagesData.destination}</h2>
-              <h3>Itinerary: {packagesData.itinerary}</h3>
+              {/* <h3>Itinerary: {packagesData.itinerary}</h3> */}
               <h3>Price: ${packagesData.price}</h3>
               <h3>Accommodations: {packagesData.accommodations}</h3>
-              <h3>Tickets Available: {ticketsAvailable}</h3> {/* Use ticketsAvailable instead of selectedPackageProp.ticketsAvailable */}
+              {/* <h3>Tickets Available: {ticketsAvailable}</h3>{" "} */}
+              {/* Use ticketsAvailable instead of packagesData.ticketsAvailable */}
+              <h3>Tickets Available: {packagesData?.ticketsAvailable || 0}</h3>
+
               <h3>Ratings: {packagesData.ratings}</h3>
-              <input
+              </div>
+              <div className="itenary-input">
+              <input className="booking-input"
                 type="number"
                 min="1"
-                max={ticketsAvailable} // Use ticketsAvailable instead of selectedPackageProp.ticketsAvailable
+                max={ticketsAvailable} // Use ticketsAvailable instead of packagesData.ticketsAvailable
                 value={bookingCount}
-                onChange={(e) => setBookingCount(parseInt(e.target.value, 10))}
+                name="bookingCount"
+                onChange={handleChange}
+                placeholder="No of Bookings"
               />
-              <button onClick={handleBookPackage}>Book Now</button>
-            </article>
+              <input className="booking-input"
+                type="email"
+                name="email"
+                value={email}
+                onChange={handleChange}
+                placeholder="email id"
+              />
+              <input className="booking-input"
+                type="text"
+                name="name"
+                value={name}
+                onChange={handleChange}
+                placeholder="your name"
+              />
+              <input className="booking-input"
+                type="tel"
+                name="phone"
+                value={phone}
+                onChange={handleChange}
+                placeholder="phone number"
+              />
+                <input className="booking-input"
+                type="date"
+                name="date"
+                value={date}
+                onChange={handleChange}
+                placeholder="phone number"
+              />
+             <div className="book-btn">  <button className="booking-btn"disabled={!ticketsAvailable} onClick={handleBookPackage}>
+                Book Now
+              </button> </div>
+            
+              </div>
+            
           </div>
         )}
       </div>
-    </>
+    </div>
+
+    
   );
 };
 
 export default Services;
-

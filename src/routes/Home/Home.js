@@ -8,7 +8,7 @@ const Home = () => {
 <MainHome
 cName="hero"
 heroVid = {Video}
-heroImg = {{}}
+// heroImg = {{}}
 title = "Your Journey your Story"
 text = "Choose your Favourite Destination"
 url ="/packages"

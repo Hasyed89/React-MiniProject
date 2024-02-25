@@ -32,7 +32,7 @@ const Navbar = () => {
             
           );
         })}
-      <button>Sign-up</button>
+      <button className='sign-up-btn'>Sign-up</button>
       </ul>
     
     </div>

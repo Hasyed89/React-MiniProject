@@ -39,6 +39,7 @@ const navigate= useNavigate();
       };
       console.log('Booking:', bookingRecord);
 
+    navigate('/booking/' + bookingRecord.packageId)
       // Clear selected package after booking
       setSelectedPackage(null);
     } else {

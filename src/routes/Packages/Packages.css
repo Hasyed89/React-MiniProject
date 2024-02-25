@@ -1,26 +1,149 @@
-.package-header{
-  margin-top: 200px; 
-  margin-left: 20px;
- width: 400px;
- height: 500px;
- border-style: solid;
- border:1rem;
- border-color: black;
- background-color: green;
- z-index: -1;
+.cn{
+  width: 100%;
+  height: 150%;
+}
  
+.img-container{
+  background-color: rgb(181, 238, 238);
+}
+ .package-bg{
+  width: 100%;
+  height: 200rem;
+  object-fit: cover;
+  opacity: 0.3;
+  position:relative;
+  /* margin-left: 0; */
+  margin-top: 1rem;
  }
- .available-packages{
-   margin-top: 20px;
-   background-color: yellow;
-   width: 400px;
- 
+ .packageslist{
+  position: absolute;
+  margin-top:-192rem;
  }
- .package-detail{
-   margin-top: 20px;
-   background-color: blueviolet;
- }
- .cn{
 
-  margin-top: 150px;
+ .rating-Searchbar{
+  margin-top: 1rem;
+  /* margin-bottom: -10rem; */
+
  }
+ .rating-search-btn {
+  margin-top: 1rem;
+  padding: 1.2rem;
+  white-space: nowrap;
+  background-color: #151516;
+
+  color: white;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+ .rating-Searchbar-input{
+  background-color: pink;
+  margin-top: 1rem;
+  width: 80%;
+  padding: 20px;
+  border-radius: 1rem;
+  margin-right: 10px;
+ }
+ .package-header {
+  /* margin-top: 0px;  */
+  margin-left: 20px;
+  width: 100%; /* Adjust width as needed */
+  height: auto;
+  /* border-style: solid; */
+  /* border-width: 1rem; */
+   /* Change border-width to border-width */
+  /* border-color: black; */
+  /* background-color: green; */
+  /* z-index: -1; */ /* Consider removing or adjusting z-index */
+  font-size: 2rem;
+  font-weight: 800;
+  background-color: #fff;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.avail-header{
+  display: block;
+  /* flex-direction: row; */
+  text-align: center;
+  /* justify-content: center; */
+  cursor: pointer;
+  margin-top: 2rem; 
+  margin-left: 30rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  background-color: #fff;
+  -webkit-background-clip: text;; 
+  margin-right:23rem ;
+}
+.package-detail {
+  margin-top: 20px;
+  background-color: blueviolet;
+}
+
+.packgedisplay {
+  display: inline-block;
+  /* grid-template-rows: repeat(auto-fit, minmax(250px, 1fr)); */
+  /* gap: 0.5rem; */
+  background-color:transparent;
+  margin: 2rem;
+  border: 2px;
+  border-radius: 10px;
+  border-style: solid;
+}
+.package-img{
+  width: 600px;
+  height: 300px;
+}
+.package-img:hover{
+  width: 500px;
+  height: 300px;
+}
+
+@media screen and (max-width: 555px) {
+  .avail-header{
+    margin-left: 18rem;
+  }
+  .cn {
+    width: 20%; /* Set a smaller width for the container */
+  }
+
+  /* Adjust the width of the search bar input */
+  .rating-Searchbar-input {
+    display: block;
+    width: 64%; 
+    margin-left:8rem ;
+  }
+
+  /* Adjust the margin of the search button */
+  .rating-search-btn {
+            padding: 1rem 3rem 1rem 3rem;
+    margin-top: 3rem;
+    margin-right: -1rem;
+  }
+
+  /* Adjust the width of the package display */
+  .packgedisplay {
+    width: 75%; /* Set a smaller width for the package display */
+    margin-right: 5%; /* Adjust margin as needed */
+  }
+
+  /* Adjust the width of the package image */
+  .package-img {
+    width: 400px;
+    height: 250px;
+  }
+  .package-img:hover{
+    width: 400px;
+    height: 300px;
+  }
+
+  /* Adjust the width of the background image */
+  .package-bg {
+    width: 100%; /* Make the background image responsive */
+  }
+
+}

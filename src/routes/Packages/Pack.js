@@ -1,52 +1,145 @@
+// import React, { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import Stars from "./Ratings/Stars";
 
-import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import useFetch from "../../Components/useFetch";
-import Services from "../Services/Services";
+// const Pack = ({ packaged, tit }) => {
+//   const navigate = useNavigate();
+//   const[rate,setRate] = useState();
+//   const searchRating = (e)=>{
+//     e.preventDefault();
+//     console.log(rate);
+// setRate(e.target.value);
+//   }
+
+//   const handlePackageClick = (pkg) => {
+//     if (packaged && Array.isArray(packaged)) {
+//       navigate(`/booking/${pkg.id}`, { state: { pkg: pkg } });
+//     }
+//   };
+
+//   return (
+//     <>
+//        <div className="package-header">
+//         <h1>{tit}</h1></div>
+//     <div className="rating-Searchbar">
+//       <input type="text"value={rate} onChange ={searchRating}placeholder="Search by Ratings" />
+//         <button>Search</button>
+//     </div>  
+//         <div className="available-packages">
+//           <h2>Available Packages</h2>
+//         </div>
+//         <div>
+//       {packaged.filter((pkg)=>
+//       rate === ''? pkg :(pkg.ratings?.includes(rate))      
+      
+//       )}
+//           {packaged?.map((pkg) => (
+//             <div
+//               className="packgedisplay"
+//               key={pkg.id}
+//               onClick={() => handlePackageClick(pkg)}
+//             >
+//               <div>
+            
+//                 <h1> {pkg.destination} </h1>
+//               </div>
+//               <div >
+//                 <img className="package-img" src={pkg.destinationimg} alt={pkg.destination} />
+//               </div>
+
+//               <div> <h2>Price : ${pkg.price} </h2></div>
+//               <div><h2>Tickets Available - [{pkg.ticketsAvailable}]</h2> </div>
+//              <div style={{  display:"inline-flex",  alignItems:"center",}}>
+//              <h2 style={{marginRight:"13px"}}>{pkg.ratings} </h2>
+//                <Stars stars ={pkg.ratings}/> 
+             
+//              </div> 
+//               {/* <div> <h2>Ratings{pkg.ratings} </h2></div> */}
+
+//             </div>
+//           ))}
+        
+//       </div>
+//     </>
+//   );
+// };
+
+// export default Pack;
+
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Stars from "./Ratings/Stars";
+import './Packages.css'
 
 const Pack = ({ packaged, tit }) => {
-  const [selectedPackage, setSelectedPackage] = useState(null);
   const navigate = useNavigate();
-const {id} =useParams()
-  const packagesDataUrl = `http://localhost:8000/packagesData/${id}`;
-  const { data: packagesData, loadMessage, isError } = useFetch(packagesDataUrl);
+  const [rate, setRate] = useState('');
 
-  useEffect(() => {
-    if (packagesData) {
-      // Set packagesData to state when it's available
-      setSelectedPackage(null); // Reset selected package when packages data changes
-    }
-  }, [packagesData]);
+  const searchRating = (e) => {
+    setRate(e.target.value);
+  };
 
-  const handlePackageClick = (packageId) => {
+  const handlePackageClick = (pkg) => {
     if (packaged && Array.isArray(packaged)) {
-      const selected = packaged.find((pkg) => pkg.id === packageId);
-      setSelectedPackage(selected);
-      navigate(`/booking/${packageId}`);
+      navigate(`/booking/${pkg.id}`, { state: { pkg: pkg } });
     }
   };
 
+  // Filter packages based on the entered rating
+  const filteredPackages = rate === ''
+    ? packaged // Show all packages if no rating is entered
+    : packaged.filter(pkg => pkg.ratings.includes(parseFloat(rate)));
+
   return (
-    <>
+    <div >
       <div className="package-header">
         <h1>{tit}</h1>
-        <div className="available-packages">
-          <h2>Available Packages</h2>
-          <ul>
-            {packaged?.map((pkg) => (
-              <li key={pkg.id} onClick={() => handlePackageClick(pkg.id)}>
-                {pkg.destination} - ${pkg.price} -{pkg.ticketsAvailable}
-              </li>
-            ))}
-          </ul>
-        </div>
       </div>
-      {isError && <div>{isError}</div>}
-      {loadMessage && <div className="cn">"Displaying the Travel List..."</div>}
-      <Services selectedPackageProp={selectedPackage} handlePackageClick={handlePackageClick({id})} />
-
-    </>
+      <div className="rating-Searchbar">
+        <input className="rating-Searchbar-input"
+          type="text"
+          value={rate}
+          onChange={searchRating}
+          placeholder="Search by Ratings"
+        />
+        <button className="rating-search-btn">Search</button>
+      </div>
+      
+        <h2 className="avail-header">Available Packages</h2>
+      
+      <div>
+        {filteredPackages.map((pkg) => (
+          <div
+            className="packgedisplay"
+            key={pkg.id}
+            onClick={() => handlePackageClick(pkg)}
+          >
+            <div>
+              <h1>{pkg.destination}</h1>
+            </div>
+            <div>
+              <img
+                className="package-img"
+                src={pkg.destinationimg}
+                alt={pkg.destination}
+              />
+            </div>
+            <div>
+              <h2>Price: ${pkg.price}</h2>
+            </div>
+            <div>
+              <h2>Tickets Available - [{pkg.ticketsAvailable}]</h2>
+            </div>
+            <div style={{ display: "inline-flex", alignItems: "center" }}>
+              <h2 style={{ marginRight: "13px" }}>{pkg.ratings}</h2>
+              <Stars stars={pkg.ratings} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 
 export default Pack;
+
