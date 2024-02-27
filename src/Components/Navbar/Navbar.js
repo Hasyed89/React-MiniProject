@@ -12,7 +12,8 @@ const Navbar = () => {
   return ( 
     <>
     <div className="NavbarItems">
-      <h1 className="navbar-logo">LOGO</h1>
+    
+      <img  className = "navbar-logo"src="https://i.pinimg.com/originals/8f/17/98/8f1798a79cd8ebc06ea4cb03df81e15f.jpg" alt="/Logo.jpg" />
 
       <div className="menu-icons" onClick={handleClicked}>
         <i className={clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
@@ -32,7 +33,7 @@ const Navbar = () => {
             
           );
         })}
-      <button className='sign-up-btn'>Sign-up</button>
+      {/* <button className='sign-up-btn'>Sign-up</button> */}
       </ul>
     
     </div>

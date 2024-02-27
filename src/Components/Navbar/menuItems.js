@@ -10,21 +10,27 @@ export const menuItems =[
     cName:'nav-links',
     icon:"fa-solid fa-circle-info"
   },  {
-    title :"Service",
-    url:'/service',
-    cName:'nav-links',
-    icon:"fa-solid fa-briefcase"
-  }, {
+  //   title :"Service",
+  //   url:'/service',
+  //   cName:'nav-links',
+  //   icon:"fa-solid fa-briefcase"
+  // }, {
     title :"Contact",
     url:'/contact',
     cName:'nav-links',
     icon:"fa-solid fa-address-book"
-  },{ 
-  title :"Bookings",
-  url:'/booking',
+  },{
+  title :"Service",
+  url:'/serv',
   cName:'nav-links',
-  icon:"fa-solid fa-address-book"
+  icon:"fa-solid fa-briefcase"
 },
+// { 
+//   title :"Bookings",
+//   url:'/booking',
+//   cName:'nav-links',
+//   icon:"fa-solid fa-address-book"
+// },
 { 
   title :"Packages",
   url:'/packages',
@@ -32,21 +38,18 @@ export const menuItems =[
   icon:"fa-solid fa-address-book"
 },
 { 
-  title :"Itenary",
+  title :"BOOKING",
   url:'/itenary',
   cName:'nav-links',
   icon:"fa-solid fa-address-book"
 },
 { 
-  title :"ItenaryList",
-  url:'/itenaryList',
-  cName:'nav-links',
-  icon:"fa-solid fa-address-book"
+  // // title :"ItenaryList",
+  // url:'/itenaryList',
+  // cName:'nav-links',
+  // icon:"fa-solid fa-address-book"
 }
-  ,{
-    title :"Sign Up",
-    url:'/signup',
-    cName:'nav-links-mobile',
-    // icon:"fa-solid fa-briefcase"
-  }
+
+   
+    
 ]

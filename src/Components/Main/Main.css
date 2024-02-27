@@ -3,20 +3,22 @@
   height: 100vh;
   position: relative;
 }
-heroImg{
+.hero-mid{
   width: 100%;
-  height: 100vh;
+  height: 70vh;
+  position: relative; 
 }
 
-#video{
+.hero-img{
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  }
+  position: relative;
+}
+
+
   .hero-text{
     position: absolute;
-    top: 55%;
+    top: 52%;
     left: 50%;
     transform: translate(-50%,-50%);
     width: 100%;

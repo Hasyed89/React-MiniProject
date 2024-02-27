@@ -1,20 +1,23 @@
+import Footer from "../../Components/Footer/Footer";
 import MainHome from "../../Components/Main/Main";
-import AboutImg from '../../assets/2.jpg';
+import AboutImg from '../../assets/9.jpg';
+import AboutUs from "./AboutUs";
+// import './About.css'
 
 const About = () => {
   return (  
     <>
 <MainHome
-cName="hero"
+cName="hero-mid"
 heroImg = {AboutImg}
-title = "Your Journey your Story"
-text = "Choose your Favourite Destination"
+title = "About"
 url ="/"
-ButtonText = "Travel plan"
-btnClass ="show"
+// ButtonText = "Travel plan"
+// btnClass ="show"
 />
-
-    </>
+<AboutUs/>
+<Footer/>
+   </> 
   );
 }
  

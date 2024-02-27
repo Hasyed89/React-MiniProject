@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./itenaryList.css";
+import Footer from "../Footer/Footer";
 const ItenaryList = ({ entries }) => {
   const [searchBar, setSearchBar] = useState("");
 
@@ -10,6 +11,7 @@ const ItenaryList = ({ entries }) => {
   };
 
   return (
+  <>
     <div className="Itenary-entry">
       <h1>Itenary Entries</h1>
       <div className="search-bar">
@@ -20,7 +22,7 @@ const ItenaryList = ({ entries }) => {
             placeholder="Search your Booking"
             name={searchBar}
           />
-          <button>Search</button>
+          {/* <button>Search</button> */}
         </form>
       </div>
       <table>
@@ -50,6 +52,9 @@ const ItenaryList = ({ entries }) => {
         </tbody>
       </table>
     </div>
+    <Footer/>
+
+    </>
   );
 };
 

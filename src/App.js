@@ -9,16 +9,22 @@ import Packages from "./routes/Packages/Packages";
 import Itenary from "./routes/Itenary/Itenary";
 import ItenaryList from "./Components/itenaryList/itenaryList";
 import Pack from "./routes/Packages/Pack";
+import Services from "./routes/Services/Services";
+import Serviced from "./routes/Services/Serviced";
 
 
 const App = () => {
   return ( 
     <>
     <div className="App">
+    <Navbar/>
+
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/service/:id" element={<Service/>}/>
+        <Route path="/serv" element= {<Serviced/>}/>
+        
         <Route path="/contact" element={<Contact/>}/>
         {/* <Route path="/booking" element={<Booking/>}/> */}
         <Route path="/booking/:id" element={<Booking />} />
@@ -28,7 +34,6 @@ const App = () => {
         <Route path= "/itenary" element={<Itenary/>}/>
         <Route path= "/itenaryList" element={<ItenaryList/>}/>
       </Routes>
-    <Navbar/>
     
     
     

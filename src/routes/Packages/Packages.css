@@ -40,7 +40,7 @@
   transition: 0.2s ease-in-out;
 }
  .rating-Searchbar-input{
-  background-color: pink;
+  font-size: larger;
   margin-top: 1rem;
   width: 80%;
   padding: 20px;
@@ -105,10 +105,19 @@
 
 @media screen and (max-width: 555px) {
   .avail-header{
-    margin-left: 18rem;
+    margin-left: 19rem;
+    display: inline-block;
+
   }
   .cn {
+    margin-top: 200rem;
     width: 20%; /* Set a smaller width for the container */
+  }
+  .package-header{
+    font-size: medium;
+    opacity: 1;
+    z-index: 999;
+    background-color: black;
   }
 
   /* Adjust the width of the search bar input */
@@ -127,7 +136,7 @@
 
   /* Adjust the width of the package display */
   .packgedisplay {
-    width: 75%; /* Set a smaller width for the package display */
+    width: 65%; /* Set a smaller width for the package display */
     margin-right: 5%; /* Adjust margin as needed */
   }
 
@@ -143,7 +152,13 @@
 
   /* Adjust the width of the background image */
   .package-bg {
-    width: 100%; /* Make the background image responsive */
+    display: none; /* Make the background image responsive */
+  }
+  .img-container{
+    display:none;
+  }
+  .NavbarItems{
+    opacity: 0.3;
   }
 
 }

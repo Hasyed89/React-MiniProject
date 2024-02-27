@@ -55,7 +55,7 @@
   /* border-style: solid; */
   z-index: 9999;
 }
-textarea{
+.comments textarea{
   width: 400px;
   height: 100px;
   padding: 2rem;
@@ -86,4 +86,7 @@ textarea{
 
 
   }
+.navbar-logo{
+ background-color: black;
+}
 }

@@ -1,6 +1,9 @@
 /* itenaryList.css */
 .Itenary-entry {
+  margin-top: 5rem;
+  margin-bottom: 10rem;
   text-align: center;
+
 }
 .Itenary-entry h1{
   margin-top: 10rem;
