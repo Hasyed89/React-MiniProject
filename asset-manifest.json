@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/React-MiniProject/static/css/main.66663923.css",
-    "main.js": "/React-MiniProject/static/js/main.4aebd965.js",
+    "main.css": "/React-MiniProject/static/css/main.8ab5ff95.css",
+    "main.js": "/React-MiniProject/static/js/main.f188f495.js",
     "static/js/787.b8114e63.chunk.js": "/React-MiniProject/static/js/787.b8114e63.chunk.js",
     "static/media/maldivesimg.gif": "/React-MiniProject/static/media/maldivesimg.d66f7f49b098cc8188d1.gif",
     "static/media/keywest.jpg": "/React-MiniProject/static/media/keywest.1e30514942c6f50bea09.jpg",
@@ -12,12 +12,12 @@
     "static/media/5.jpg": "/React-MiniProject/static/media/5.46b372902997b3fbd648.jpg",
     "static/media/6.jpg": "/React-MiniProject/static/media/6.c405c8228d51cdef5d0f.jpg",
     "index.html": "/React-MiniProject/index.html",
-    "main.66663923.css.map": "/React-MiniProject/static/css/main.66663923.css.map",
-    "main.4aebd965.js.map": "/React-MiniProject/static/js/main.4aebd965.js.map",
+    "main.8ab5ff95.css.map": "/React-MiniProject/static/css/main.8ab5ff95.css.map",
+    "main.f188f495.js.map": "/React-MiniProject/static/js/main.f188f495.js.map",
     "787.b8114e63.chunk.js.map": "/React-MiniProject/static/js/787.b8114e63.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.66663923.css",
-    "static/js/main.4aebd965.js"
+    "static/css/main.8ab5ff95.css",
+    "static/js/main.f188f495.js"
   ]
 }
