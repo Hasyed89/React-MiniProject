@@ -1,4 +1,4 @@
-// import react from 'react'
+import react from 'react'
 import { Link } from 'react-router-dom';
 import { menuItems } from './menuItems';
 import './Navbar.css'
@@ -33,7 +33,6 @@ const Navbar = () => {
             
           );
         })}
-      {/* <button className='sign-up-btn'>Sign-up</button> */}
       </ul>
     
     </div>

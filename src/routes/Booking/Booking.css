@@ -1,28 +1,21 @@
-/* .booking{
-  width: 100%;
-  height: auto;
-  background-color: aquamarine;
-} */
-.booking{
+
+.booking {
   background-color: rgb(247, 236, 236);
   height: 200%;
-
 }
-.Package-detail{
+.Package-detail {
   padding: 30px;
   margin-top: 80px;
-    left: -47rem;
-
-
+  left: -47rem;
 }
 
-.booking-img{
+.booking-img {
   margin-top: 2rem;
   width: 40%;
   height: auto;
   opacity: 0.7;
 }
-.booking-details{
+.booking-details {
   background-color: rgb(159, 213, 220);
   display: block;
   padding: 2rem;
@@ -34,17 +27,17 @@
   border-style: solid;
   border-radius: 20px;
 }
-.booking-details button{
+.booking-details button {
   margin-top: 4rem;
   font-size: large;
   font-weight: bold;
   border: none;
   padding: 1rem;
 }
-.itnerary-header{
+.itnerary-header {
   text-decoration: underline;
 }
-.reviews{
+.reviews {
   position: relative;
   left: 45rem;
   /* right: 0; */
@@ -55,38 +48,35 @@
   /* border-style: solid; */
   z-index: 9999;
 }
-.comments textarea{
+.comments textarea {
   width: 400px;
   height: 100px;
   padding: 2rem;
   text-align: center;
   font-weight: bold;
   display: inline-block;
-     
 }
-@media screen and (max-width:555px) {
-  textarea{
+@media screen and (max-width: 555px) {
+  textarea {
     position: absolute;
     bottom: -10rem;
     left: -47rem;
     display: block;
   }
-  .booking-details{
+  .booking-details {
     /* margin-top: -1rem; */
     height: 200px;
     background-color: transparent;
   }
-  .booking{
-    background-color:white;
+  .booking {
+    background-color: white;
     height: 300%;
   }
-  .comments{
+  .comments {
     background-color: rgb(247, 236, 236);
     /* position: absolute; */
-
-
   }
-.navbar-logo{
- background-color: black;
-}
+  .navbar-logo {
+    background-color: black;
+  }
 }

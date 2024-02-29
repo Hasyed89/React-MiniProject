@@ -48,7 +48,7 @@
   opacity: 0.8;
  }
 .submit-container {
-  margin-top: -100rem;
+  margin-top: -107rem;
   opacity: 1;
   /* z-index: 999; */
   width: 60%;
@@ -80,7 +80,9 @@
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
-
+.serviceFooter{
+  margin-top: 10rem;
+}
 .booking-btn:hover {
   background-color: rgb(224, 217, 217);
 
@@ -88,35 +90,28 @@
 }
 @media screen and (max-width: 555px) {
   .container {
-    /* background-color: #151516; */
     white-space: initial;
   }
   .submit-container {
-    margin-top: -33rem;
+    margin-top: 2rem;
     opacity: 1;
-    /* z-index: 999; */
-    /* width: 50%; */
-    height: 0%;
-    /* display: inline-block; */
+    
+    height: 50%;
      position: absolute;
-    ;
+    
     left: 7rem;
   }
   .itenary-input {
-    /* display: flex; */
-    /* width: 80%; */
+    
     margin-left: 0rem;
-    margin-top: 0.5rem;
-    height: 2rem;
+    margin-top: 0.1rem;
+    height: 1rem;
   }
   .submit-img {
-    /* width: 30%;
-  height: 30%; */
+  
     object-fit: cover;
     opacity: 0.8;
-    /* position:absolute; */
-    /* margin-left: 0; */
-    margin-top: 1rem;
+      margin-top: 1rem;
   }
   .itenary-booking {
     margin-left: 1rem;
@@ -132,7 +127,7 @@
   .booking-input {
     text-align: center;
     margin: 1.5rem;
-    padding: 2px;
+    padding: 1px;
     box-shadow: 5px 2px #f4f1f1;
     font-size: large;
     color: rgb(158, 156, 156);
@@ -141,26 +136,19 @@
     opacity: 1;
   }
   .booking-bg {
-    width: 100%;
-    height: 300%;
-    object-fit: cover;
-    opacity: 0.3;
-    /* position:absolute; */
-    /* margin-left: 0; */
-    margin-top: -1rem;
+
+    display: none;
+
   }
   .booking-bg1 {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.3;
-    /* position:absolute; */
-    /* margin-left: 0; */
-    margin-top: -1rem;
+ 
+    display: none;
   }
   .booking-bg2 {
-    display: inline;
-
-    opacity: 0.3;
+   
+    display: none;
+  }
+  .serviceFooter{
+      display: none;
   }
 }

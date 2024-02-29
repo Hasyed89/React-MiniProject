@@ -1,13 +1,11 @@
-.icon{
+.icon {
   font-size: 2rem;
   color: orange;
-
 }
-input[type = radio]{
-display: none;
-
+input[type="radio"] {
+  display: none;
 }
-.star{
+.star {
   font-size: 1.2rem;
   background-color: white;
 

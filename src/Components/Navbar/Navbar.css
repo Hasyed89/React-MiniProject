@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
+  padding: 0 30px;
   box-shadow: 0 5px 15px 0 rgba(0,0,0,.25);
   width: 95%;
   height: 80px;
@@ -17,19 +17,23 @@
 .navbar-logo{
   width: 6%;
   border-radius: 50%;
-  box-shadow: 14px 13px rgb(155, 153, 153)y;
-  /* height: 10%; */
-  /* color: #222;
-  font-size: 2rem; */
+  justify-self: start;
+
   cursor: pointer;
   opacity: 1;
 }
+.fa-react{
+  margin-left: 0.2rem;
+  font-size: 11.6rem;
+  color: black;
+}
 .nav-menu{
   display: grid;
-  grid-template-columns: repeat(6,auto);
-  grid-gap:2px;
+  grid-template-columns: repeat(7,auto);
+  grid-gap:10px;
   list-style: none;
   align-items: center;
+  justify-content: end;
   
 }
 .nav-links{
@@ -49,7 +53,7 @@
   background-color: #01959a;
   color: #fff;
   border-radius: 4px;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease;
 }
 
 .nav-links-mobile{
@@ -69,12 +73,18 @@
   background-color: #151516;
   color: #fff;
 }
+.fa-bars{
+  color: #222;
+z-index: 999;
+
+}
 .menu-icons{
   display: none;
 }
-@media screen and (max-width:850px){
+@media screen and (max-width:550px){
 .NavbarItems{
-z-index: 99;
+  /* margin-right: 4rem; */
+z-index: 999;
   }
   .nav-menu{
     display: flex;
@@ -85,34 +95,44 @@ z-index: 99;
     height: auto;
     position: absolute;
     top: 0;
-    left: -100%;
-    opacity: 0;    align-items: stretch;
+    left: -110%;
+    opacity: 1;  
+    align-items: stretch;
     padding: 80px 0 30px 0;
     margin: 0;
-    transition: 0.3s ease-in-out;
+    transition: all 0.3s ease;
     border-radius: 13px;
+    z-index: -1;
+    opacity: 1;
+
 
   }
   .nav-menu.active{
-    left: 0;
+    left: 0rem;
     opacity: 1;
     z-index: -1;
-    transition: 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 
   }
   .nav-links{
     display: block;
     width: 100%;
     font-size: 1.2rem;
-    padding: 2rem 0;
+    padding: 1rem 0;
+    /* height: auto; */
   }
   .nav-links:hover{
     background-color: #01959a;
     transition: none;
 
   }
-  .sign-up-btn{
-    display: none;
+  .menu-icons{
+    display: block;
+    position: absolute;
+    top: 25px;
+    right:30px;
+    font-size: 1.5rem;
+    cursor: pointer;
   }
   .nav-links-mobile{
     display: block;
@@ -128,12 +148,10 @@ z-index: 99;
     font-weight: 700;
     letter-spacing: 2px;
   }
-.menu-icons{
-display: block;
-cursor: pointer;
-}
-.menu-icons i{
-font-size: 1.2rem;
-color: #222;
+
+.fa-times{
+  color: #0b0b0b;
+  
+
 }
 }

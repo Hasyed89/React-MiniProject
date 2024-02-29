@@ -50,14 +50,8 @@
  .package-header {
   /* margin-top: 0px;  */
   margin-left: 20px;
-  width: 100%; /* Adjust width as needed */
+  width: 100%; 
   height: auto;
-  /* border-style: solid; */
-  /* border-width: 1rem; */
-   /* Change border-width to border-width */
-  /* border-color: black; */
-  /* background-color: green; */
-  /* z-index: -1; */ /* Consider removing or adjusting z-index */
   font-size: 2rem;
   font-weight: 800;
   background-color: #fff;
@@ -79,16 +73,9 @@
   -webkit-background-clip: text;; 
   margin-right:23rem ;
 }
-.package-detail {
-  margin-top: 20px;
-  background-color: blueviolet;
-}
-
 .packgedisplay {
   display: inline-block;
-  /* grid-template-rows: repeat(auto-fit, minmax(250px, 1fr)); */
-  /* gap: 0.5rem; */
-  background-color:transparent;
+   background-color:transparent;
   margin: 2rem;
   border: 2px;
   border-radius: 10px;
@@ -158,7 +145,9 @@
     display:none;
   }
   .NavbarItems{
-    opacity: 0.3;
+    opacity: 0.6;
   }
-
+  .fa-times{
+    color: #0b0b0b;
+  }
 }
